@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.text.ParseException;
+
 @Controller
 public class OvertimeCalculatorController {
 
@@ -19,12 +21,18 @@ public class OvertimeCalculatorController {
     }
 
     @RequestMapping("/processForm")
-    public String processForm(@ModelAttribute("employee") EmployeeOvertimeData theEmployee) {
+    public String processForm(@ModelAttribute("employee") EmployeeOvertimeData theEmployee) throws ParseException {
 
-        double result = (theEmployee.getIncome() / theEmployee.getWorkingHoursInCurrentMonth())
-                * theEmployee.getWorkedHours();
+        double moneyPerHour = theEmployee.getIncome() / theEmployee.getWorkingHoursInCurrentMonth();
 
-                theEmployee.setOvertime(result);
+        int overtime = theEmployee.getWorkedHours() - theEmployee.getWorkingHoursInCurrentMonth();
+
+        if (overtime <= 0) {
+            overtime = 0;
+        }
+
+        double result = (double) Math.round((moneyPerHour * theEmployee.getMethodOfPayment()) * overtime);
+        theEmployee.setOvertime(result);
 
         return "overtimeResult";
     }

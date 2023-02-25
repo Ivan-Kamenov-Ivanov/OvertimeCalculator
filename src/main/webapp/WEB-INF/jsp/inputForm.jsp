@@ -24,7 +24,27 @@
 
 		<br><br>
 
-		Working hours: <form:input path="workingHoursInCurrentMonth" />
+		<form:select path="workingHoursInCurrentMonth">
+        		    <form:option value="160" label="January"/>
+        		    <form:option value="160" label="February"/>
+        		    <form:option value="176" label="March"/>
+        		    <form:option value="152" label="April"/>
+        		    <form:option value="152" label="May"/>
+        		    <form:option value="176" label="June"/>
+        		    <form:option value="168" label="July"/>
+        		    <form:option value="184" label="August"/>
+        		    <form:option value="160" label="September"/>
+        		    <form:option value="168" label="October"/>
+        		    <form:option value="176" label="November"/>
+        		    <form:option value="152" label="December"/>
+        		</form:select>
+
+		<br><br>
+
+                Method of payment:
+        		1 : 1 <form:radiobutton path="methodOfPayment" value="1"/>
+        		1 : 1.5 <form:radiobutton path="methodOfPayment" value="1.5"/>
+        		1 : 2 <form:radiobutton path="methodOfPayment" value="2"/>
 
 		<br><br>
 

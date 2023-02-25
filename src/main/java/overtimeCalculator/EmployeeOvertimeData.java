@@ -5,9 +5,10 @@ public class EmployeeOvertimeData {
     private double income;
     private int workedHours;
     private int workingHoursInCurrentMonth;
+    private double methodOfPayment;
     private double overtime;
 
-    EmployeeOvertimeData(){
+    EmployeeOvertimeData() {
 
     }
 
@@ -42,4 +43,13 @@ public class EmployeeOvertimeData {
     public void setWorkingHoursInCurrentMonth(int workingHoursInCurrentMonth) {
         this.workingHoursInCurrentMonth = workingHoursInCurrentMonth;
     }
+
+    public double getMethodOfPayment() {
+        return methodOfPayment;
+    }
+
+    public void setMethodOfPayment(double methodOfPayment) {
+        this.methodOfPayment = methodOfPayment;
+    }
+
 }
